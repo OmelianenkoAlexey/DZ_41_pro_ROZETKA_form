@@ -11,6 +11,26 @@
 // що товар куплений і повернення у вихідний стан програми
 // (коли відображається лише список категорій).
 
+// ! ДЗ 41. Модифікувати програму інтернет - магазин
+
+// Робимо на підставі минулого дз.
+
+
+// В інформації товару - кнопка "купити".
+// При натисканні на "купити" нижче з'являється форма оформлення замовлення з наступними полями:
+// ПІБ покупця
+// Місто(вибір зі списку)
+// Склад Нової пошти для надсилання
+// Післяплати або оплати банківської картки
+// Кількість продукції, що купується
+// Коментар до замовлення
+// 2. Реалізувати перевірку всіх даних користувача під час
+// підтвердження замовлення - обов'язкові поля заповнені.
+// Інакше - виводити помилку на сторінку
+
+// 3. Виводити інформацію про замовлення на сторінку
+// (інформація про товар та про доставку)
+
 const categories = [
     {
         name: "iphone",
@@ -263,11 +283,14 @@ close.addEventListener("click", e => {
 });
 
 add.addEventListener("click", e => {
-    e.preventDefault();
+    // e.preventDefault();
+    const start = [];
     if (!fullName.value) {
         fullName.style.backgroundColor = "red";
+
     } else {
         fullName.style.backgroundColor = "white";
+        start
     }
 
     if (!city.value) {
@@ -296,15 +319,15 @@ add.addEventListener("click", e => {
         productionQuantity.style.backgroundColor = "white";
     }
 
-    modalContainer1.classList.add("d-none");
-    modalContainer2.classList.remove("d-none");
+
+
+    // modalContainer1.classList.add("d-none");
+    // modalContainer2.classList.remove("d-none");
 })
 
 close2.addEventListener("click", e => {
     modalContainer2.classList.add("d-none");
 })
-
-
 
 
 
