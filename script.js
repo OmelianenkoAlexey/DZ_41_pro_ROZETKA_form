@@ -250,95 +250,118 @@ function renderInfoProducts(arr1, nameProduct) {
             right.append(rightItem);
 
             button.addEventListener("click", e => {
-                // location.reload();
+
+                // !!!!!!!!!!!!
+
+
+
+
+                const modalContainer1 = document.querySelector(".modal-container1");
+                const modalContainer2 = document.querySelector(".modal-container2");
+
+                let fullName = document.getElementById("fullName");
+                let city = document.getElementById("city");
+                let mailNumber = document.getElementById("mailNumber");
+
+                let paymentType = document.getElementById("paymentType");
+                let after = document.getElementById("after");
+                let before = document.getElementById("before");
+
+                let productionQuantity = document.getElementById("productionQuantity");
+
+                const add = document.getElementById("add");
+                const close = document.getElementById("close");
+
+                const close2 = document.getElementById("close2");
+
+                let fullNameForm = document.getElementById("fullNameForm");
+                let nameProductForm = document.getElementById("nameProductForm");
+                let productionQuantityForm = document.getElementById("productionQuantityForm");
+                let cityForm = document.getElementById("cityForm");
+                let mailNumberForm = document.getElementById("mailNumberForm");
+
 
                 modalContainer1.classList.remove("d-none");
 
+                close.addEventListener("click", e => {
+                    modalContainer1.classList.add("d-none");
+                });
+
+                add.addEventListener("click", e => {
+                    e.preventDefault();
+                    const start = [false, false, false, false];
+                    if (!fullName.value) {
+                        fullName.style.backgroundColor = "red";
+                        start[0] = false;
+                    } else {
+                        fullName.style.backgroundColor = "white";
+                        start[0] = true;
+                    }
+
+                    if (!city.value) {
+                        city.style.backgroundColor = "red";
+                        start[1] = false;
+                    } else {
+                        city.style.backgroundColor = "white";
+                        start[1] = true;
+                    }
+
+                    if (!mailNumber.value) {
+                        mailNumber.style.backgroundColor = "red";
+                        start[2] = false;
+                    } else {
+                        mailNumber.style.backgroundColor = "white";
+                        start[2] = true;
+                    }
+
+                    if (!paymentType.value) {
+                        // paymentType.style.backgroundColor = "red";
+                    } else {
+                        // paymentType.style.backgroundColor = "white";
+                    }
+
+                    // if (after.checked) paymentType = after.value;
+                    // if (before.checked) paymentType = before.value;
+
+                    if (!productionQuantity.value) {
+                        productionQuantity.style.backgroundColor = "red";
+                        start[3] = false;
+                    } else {
+                        productionQuantity.style.backgroundColor = "white";
+                        start[3] = true;
+                    }
+
+                    function validation() {
+                        return start.every((item) => item);
+                    }
+
+                    if (validation()) {
+                        console.log("ok");
+                        console.log(paymentType.value);
+
+
+                        fullNameForm.innerText = fullName.value;
+                        nameProductForm.innerText = nameProduct;
+                        productionQuantityForm.innerText = productionQuantity.value;
+                        cityForm.innerText = city.value;
+                        mailNumberForm.innerText = mailNumber.value;
+
+
+
+                        modalContainer1.classList.add("d-none");
+                        modalContainer2.classList.remove("d-none");
+                    }
+                })
+
+                close2.addEventListener("click", e => {
+                    modalContainer2.classList.add("d-none");
+                })
+                // !!!!!!!!!!!!!!
             })
         }
         container.append(right);
     })
 };
-
-const modalContainer1 = document.querySelector(".modal-container1");
-const modalContainer2 = document.querySelector(".modal-container2");
-
-const fullName = document.getElementById("fullName");
-const city = document.getElementById("city");
-const mailNumber = document.getElementById("mailNumber");
-
-let paymentType = document.getElementById("paymentType");
-const after = document.getElementById("after");
-const before = document.getElementById("before");
-
-const productionQuantity = document.getElementById("productionQuantity");
-
-const add = document.getElementById("add");
-const close = document.getElementById("close");
-
-const close2 = document.getElementById("close2");
-
-close.addEventListener("click", e => {
-    modalContainer1.classList.add("d-none");
-});
-
-add.addEventListener("click", e => {
-    e.preventDefault();
-    const start = [false, false, false, false];
-    if (!fullName.value) {
-        fullName.style.backgroundColor = "red";
-        start[0] = false;
-    } else {
-        fullName.style.backgroundColor = "white";
-        start[0] = true;
-    }
-
-    if (!city.value) {
-        city.style.backgroundColor = "red";
-        start[1] = false;
-    } else {
-        city.style.backgroundColor = "white";
-        start[1] = true;
-    }
-
-    if (!mailNumber.value) {
-        mailNumber.style.backgroundColor = "red";
-        start[2] = false;
-    } else {
-        mailNumber.style.backgroundColor = "white";
-        start[2] = true;
-    }
-
-    if (!paymentType.value) {
-        // paymentType.style.backgroundColor = "red";
-    } else {
-        // paymentType.style.backgroundColor = "white";
-    }
-
-    // if (after.checked) paymentType = after.value;
-    // if (before.checked) paymentType = before.value;
-
-    if (!productionQuantity.value) {
-        productionQuantity.style.backgroundColor = "red";
-        start[3] = false;
-    } else {
-        productionQuantity.style.backgroundColor = "white";
-        start[3] = true;
-    }
-
-    function validation() {
-        return start.every((item) => item);
-    }
-
-    if (validation()) {
-        modalContainer1.classList.add("d-none");
-        modalContainer2.classList.remove("d-none");
-    }
-})
-
-close2.addEventListener("click", e => {
-    modalContainer2.classList.add("d-none");
-})
 
 
 // ! ДЗ 41. Модифікувати програму інтернет - магазин
