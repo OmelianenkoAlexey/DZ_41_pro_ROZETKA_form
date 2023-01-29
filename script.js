@@ -283,26 +283,30 @@ close.addEventListener("click", e => {
 });
 
 add.addEventListener("click", e => {
-    // e.preventDefault();
-    const start = [];
+    e.preventDefault();
+    const start = [false, false, false, false];
     if (!fullName.value) {
         fullName.style.backgroundColor = "red";
-
+        start[0] = false;
     } else {
         fullName.style.backgroundColor = "white";
-        start
+        start[0] = true;
     }
 
     if (!city.value) {
         city.style.backgroundColor = "red";
+        start[1] = false;
     } else {
         city.style.backgroundColor = "white";
+        start[1] = true;
     }
 
     if (!mailNumber.value) {
         mailNumber.style.backgroundColor = "red";
+        start[2] = false;
     } else {
         mailNumber.style.backgroundColor = "white";
+        start[2] = true;
     }
 
     if (!paymentType.value) {
@@ -310,25 +314,31 @@ add.addEventListener("click", e => {
     } else {
         // paymentType.style.backgroundColor = "white";
     }
-    if (after.checked) paymentType = after.value;
-    if (before.checked) paymentType = before.value;
+
+    // if (after.checked) paymentType = after.value;
+    // if (before.checked) paymentType = before.value;
 
     if (!productionQuantity.value) {
         productionQuantity.style.backgroundColor = "red";
+        start[3] = false;
     } else {
         productionQuantity.style.backgroundColor = "white";
+        start[3] = true;
     }
 
+    function validation() {
+        return start.every((item) => item);
+    }
 
-
-    // modalContainer1.classList.add("d-none");
-    // modalContainer2.classList.remove("d-none");
+    if (validation()) {
+        modalContainer1.classList.add("d-none");
+        modalContainer2.classList.remove("d-none");
+    }
 })
 
 close2.addEventListener("click", e => {
     modalContainer2.classList.add("d-none");
 })
-
 
 
 // ! ДЗ 41. Модифікувати програму інтернет - магазин
