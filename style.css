@@ -169,6 +169,10 @@ fieldset>textarea {
     color: white;
 }
 
+#imageForm {
+    width: 50%;
+}
+
 
 .d-none {
     display: none;

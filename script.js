@@ -279,7 +279,8 @@ function renderInfoProducts(arr1, nameProduct) {
                 let productionQuantityForm = document.getElementById("productionQuantityForm");
                 let cityForm = document.getElementById("cityForm");
                 let mailNumberForm = document.getElementById("mailNumberForm");
-
+                let imageForm = document.getElementById("imageForm");
+                imageForm.setAttribute("src", `${item.image}`);
 
                 modalContainer1.classList.remove("d-none");
 
@@ -336,8 +337,7 @@ function renderInfoProducts(arr1, nameProduct) {
                     }
 
                     if (validation()) {
-                        console.log("ok");
-                        console.log(paymentType.value);
+
 
 
                         fullNameForm.innerText = fullName.value;
@@ -345,8 +345,6 @@ function renderInfoProducts(arr1, nameProduct) {
                         productionQuantityForm.innerText = productionQuantity.value;
                         cityForm.innerText = city.value;
                         mailNumberForm.innerText = mailNumber.value;
-
-
 
                         modalContainer1.classList.add("d-none");
                         modalContainer2.classList.remove("d-none");
